@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages{
+        stage('check'){
+            steps {
+                git 'https://github.com/pinkey023/terraform-project.git'
+            }
+        }
+        stage('init'){
+            steps{
+                sh 'terraform init'
+            }
+        }
+        stage('plan'){
+            steps{
+                sh 'terraform plan'
+            }
+        }
+        stage('action'){
+            steps{
+                sh 'terraform $action --auto-approve'
+            }
+        }
+    }
+}
