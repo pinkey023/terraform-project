@@ -5,6 +5,7 @@ secret_key = "b3/9luYaNpBGq6V5/BrZ07QUcdYG5VTtuhGMbToi"
 }
 resource "aws_instance" "one" {
 ami = "ami-0453898e98046c639"
+key_name = "hreyan"
 instance_type = "t2.micro"
 availability_zone = "us-east-1a"
 vpc_security_group_ids = [aws_security_group.five.id]
@@ -22,6 +23,7 @@ Name = "webserver-1"
 }
 resource "aws_instance" "two" {
 ami = "ami-0453898e98046c639"
+key_name = "hreyan"
 instance_type = "t2.micro"
 availability_zone = "us-east-1b"
 vpc_security_group_ids = [aws_security_group.five.id]
@@ -39,6 +41,7 @@ Name = "webserver-2"
 }
 resource "aws_instance" "three" {
 ami = "ami-0453898e98046c639"
+key_name = "hreyan"
 instance_type = "t2.micro"
 availability_zone = "us-east-1a"
 vpc_security_group_ids = [aws_security_group.five.id]
@@ -48,6 +51,7 @@ Name = "appserver-1"
 }
 resource "aws_instance" "four" {
 ami = "ami-0453898e98046c639"
+key_name = "hreyan"
 instance_type = "t2.micro"
 availability_zone = "us-east-1b"
 vpc_security_group_ids = [aws_security_group.five.id]
@@ -80,7 +84,7 @@ name = each.value
 variable "user_name" {
 description = "*"
 type = set(string)
-default = ["user-1,user-2,user-3,user-4"]
+default = [ "user-1, user-2, user-3, user-4" ]
 }
 resource "aws_ebs_volume" "eight" {
 size = 40
